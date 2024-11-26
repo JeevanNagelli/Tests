@@ -38,7 +38,7 @@ public:
 class Display {
 private:
     CarData& data;  // Reference to CarData object
-    mutex mtx; 
+    mutex mtx;
 
 public:
     Display(CarData& carData) : data(carData) {}
@@ -66,6 +66,7 @@ void updateData(CarData& carData) {
     while (true) {
         carData.update();
         this_thread::sleep_for(chrono::seconds(1)); 
+    }
 }
 
 // Function to continuously display car data
@@ -73,6 +74,7 @@ void displayData(Display& display) {
     while (true) {
         display.show();
         this_thread::sleep_for(chrono::seconds(1));  
+    }
 }
 
 int main() {
